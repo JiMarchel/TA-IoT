@@ -1,0 +1,33 @@
+[wokwi]
+version = 1
+elf = ".pio/build/esp32/firmware.elf"
+firmware = ".pio/build/esp32/firmware.bin"
+
+
+[project]
+name = "ESP32 Joke Display"
+description = "Proyek ESP32 dengan TFT ILI9341 dan tombol untuk menampilkan jokes."
+
+
+
+[dependencies]
+# Daftarkan pustaka yang diperlukan
+libraries = [
+  "Adafruit ILI9341", # Pustaka untuk grafis
+  "ArduinoJson", # Pustaka untuk TFT ILI9341
+  "Button2" # Opsional, pustaka untuk tombol
+]
+
+[board]
+type = "esp32-devkit-v1" # Jenis board ESP32 Anda
+
+[connections]
+# Hubungkan ESP32 ke perangkat lain
+D23 = "ILI9341_SCK"
+D19 = "ILI9341_MOSI"
+D18 = "ILI9341_DC"
+D5  = "ILI9341_CS"
+D26 = "ILI9341_RST"
+
+# Koneksi untuk tombol
+D4 = "button"
